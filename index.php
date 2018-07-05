@@ -104,7 +104,7 @@
 
         tbody.empty();
 
-        tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i></td>`);
+        tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i> CARREGANDO...</td>`);
 
         setTimeout(() => {
           tbody.empty();
