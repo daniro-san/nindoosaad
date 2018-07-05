@@ -97,7 +97,7 @@
 
         let urls = [];
         urls.push({url: 'https://13.77.153.203:5002/cartao_cnpj?cnpj='+cnpj, name: 'Cartão CNPJ'});
-        urls.push({url: 'https://13.77.153.203:5002/juceb?cnpj='+cnpj, name: 'JUCEB'});
+        // urls.push({url: 'https://13.77.153.203:5002/juceb?cnpj='+cnpj, name: 'JUC;EB'});
         urls.push({url: 'https://13.77.153.203:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL'});
         // urls.push({url: 'https://13.77.153.203:5002/sefaz_sp?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ MA'});
         urls.push({url: 'https://13.77.153.203:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2', name: 'CND MUNICIPAL'});
