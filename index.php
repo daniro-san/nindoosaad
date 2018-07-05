@@ -104,6 +104,12 @@
 
         tbody.empty();
 
+        tbody.append(`<td colspan="20"><i class="fa fa-load fa-spin fa-4x"></i></td>`);
+
+        setTimeout(() => {
+          tbody.empty();
+        }, 2000);
+
         $.each(urls, function(i, e) {
           $.get(e.url, function(resp) {
             let json = JSON.parse(resp);
