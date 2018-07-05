@@ -65,6 +65,10 @@
     var searchParams = new URLSearchParams(customUrl.search);
     var cnpj = searchParams.get('cnpj');
 
+    cnpj = cnpj.replace('.', '');
+    cnpj = cnpj.replace('-', '');
+    cnpj = cnpj.replace('/', '');
+
     $(document).ready(function() {
       var today = new Date();
       var dd = today.getDate();
