@@ -69,7 +69,7 @@
 
     $('#companyData').html(`${empresa} - ${cnpj}`);
 
-    cnpj = cnpj.replace(/./g, '');
+    cnpj = cnpj.replace(/\./g, '');
     cnpj = cnpj.replace(/-/g, '');
     cnpj = cnpj.replace(/\//g, '');
 
