@@ -37,6 +37,7 @@
           </div>
         </div>
         <div class="text-center pt-2 mt-2 text-message font-weight-regular">
+          <div class="col-6"><h3 id="companyData"></h3></div>
           <table id="resultTable" class="table table-bordered table-striped">
             <thead class="thead-light">
               <tr>
@@ -64,6 +65,9 @@
     var customUrl = new URL(location.href);
     var searchParams = new URLSearchParams(customUrl.search);
     var cnpj = searchParams.get('cnpj');
+    var empresa = searchParams.get('empresa');
+
+    $('#companyData').html(`${empresa} - ${cnpj}`);
 
     cnpj = cnpj.replace('.', '');
     cnpj = cnpj.replace('-', '');
