@@ -24,14 +24,14 @@
   
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <main role="main" class="inner cover container-fluid h-100">
-        <div class="row align-items-center justify-content-center h-50">
+        <div class="row align-items-center justify-content-center h-50 d-none">
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
             <form action="">
               <div class="form-group">
                 <input class="form-control form-control-lg d-none" placeholder="CNPJ" type="text" name="cnpj" id="cnpj">
               </div>
               <div class="form-group">
-                <button class="btn btn-info btn-lg btn-block" id="btnSearch">BUSCAR</button>
+                <button class="btn btn-info btn-lg btn-block d-none" id="btnSearch">BUSCAR</button>
               </div>
             </form>
           </div>
@@ -153,6 +153,8 @@
         $('#cnpj').attr('disabled', false);
         $('#cnpj').attr('readonly', false);
       });
+
+      $('#btnSearch').trigger('click');
     });
   </script>
 </body>
