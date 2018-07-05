@@ -83,6 +83,8 @@
 
       today = dd+'/'+mm+'/'+yyyy;
 
+      $.ajaxSetup({ timeout: 30000});
+
       $('#btnSearch').on('click', function(e) {
         e.preventDefault();
         let self = this;
