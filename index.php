@@ -28,7 +28,7 @@
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
             <form action="">
               <div class="form-group">
-                <input class="form-control form-control-lg" placeholder="CNPJ" type="text" name="cnpj" id="cnpj">
+                <input class="form-control form-control-lg d-none" placeholder="CNPJ" type="text" name="cnpj" id="cnpj">
               </div>
               <div class="form-group">
                 <button class="btn btn-info btn-lg btn-block" id="btnSearch">BUSCAR</button>
@@ -61,8 +61,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
   <script>
-    var getCnpj = '<?php $_REQUEST["cnpj"] ?>';
-    console.log(getCnpj);
+    var customUrl = new URL(location.href);
+    var searchParams = new URLSearchParams(customUrl.search);
+    var cnpj = searchParams.get('cnpj');
 
     $(document).ready(function() {
       var today = new Date();
@@ -86,7 +87,7 @@
         e.preventDefault();
         let self = this;
         let tableData = [];
-        let cnpj = $('#cnpj').val();
+        // let cnpj = $('#cnpj').val();
         let table = $('#resultTable');
         let tbody = table.find('tbody');
         $('#cnpj').attr('disabled', true);
