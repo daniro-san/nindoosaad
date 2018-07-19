@@ -41,17 +41,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
   <script>
-    var customUrl = new URL(location.href);
-    var searchParams = new URLSearchParams(customUrl.search);
-    var cnpj = searchParams.get('cnpj');
-    var empresa = searchParams.get('empresa');
-
-    $('#companyData').html(`${empresa} - ${cnpj}`);
-
-    cnpj = cnpj.replace(/\./g, '');
-    cnpj = cnpj.replace(/-/g, '');
-    cnpj = cnpj.replace(/\//g, '');
-
     $(document).ready(function() {
       var today = new Date();
       var dd = today.getDate();
