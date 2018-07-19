@@ -80,7 +80,9 @@
         }
       });
 
-      $('#btnUploadFile').on('click', function() {
+      $('#btnUploadFile').on('click', function(e) {
+        e.preventDefault();
+        
         var formFileUpload = new FormData( );
         formFileUpload.append( "file", file );
 
