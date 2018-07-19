@@ -24,11 +24,11 @@
   
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <main role="main" class="inner cover container-fluid h-100">
-        <div class="row align-items-center justify-content-center h-50 d-none">
+        <div class="row align-items-center justify-content-center h-50">
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
             <form action="" id="uploadForm">
-              <input type="file" name="pdfUpload" id="" class="form-control">
-              <button class="btn btn-primary"><i class="fa fa-cloud"></i> Enviar</button>
+              <input type="file" name="pdfUpload" id="pdfUpload" class="form-control">
+              <button class="btn btn-primary" id="btnUploadFile"><i class="fa fa-cloud"></i> Enviar</button>
             </form>
           </div>
         </div>
@@ -41,11 +41,13 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
   <script>
+    var file;
+
     $(document).ready(function() {
       var today = new Date();
       var dd = today.getDate();
 
-      var mm = today.getMonth()+1; 
+      var mm = today.getMonth()+1;
       var yyyy = today.getFullYear();
       if(dd<10) 
       {
@@ -61,84 +63,51 @@
 
       $.ajaxSetup({ timeout: 300000});
 
-      $('#btnSearch').on('click', function(e) {
-        e.preventDefault();
-        let self = this;
-        let tableData = [];
-        // let cnpj = $('#cnpj').val();
-        let table = $('#resultTable');
-        let tbody = table.find('tbody');
-        $('#cnpj').attr('disabled', true);
-        $('#cnpj').attr('readonly', true);
+      $( "#uploadFile" ).on( "change", function ( ) {
+        var val = $( this ).val( ).split( "\\" )[2] ;
+        var self = this;
 
-        let urls = [];
-        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj, name: 'Cartão CNPJ'});
-        // urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUC;EB'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL'});
-        // urls.push({url: 'https://40.76.88.50:5002/sefaz_sp?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ MA'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2', name: 'CND MUNICIPAL'});
-
-        self.disabled = true;
-
-        tbody.empty();
-
-        tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i> CARREGANDO...</td>`);
-
-        setTimeout(() => {
-          tbody.empty();
-        }, 2000);
-
-        $.each(urls, function(i, e) {
-          $.get(e.url, function(resp) {
-            let json = JSON.parse(resp);
-            if(json.status === 'true' || json.status === true) {
-              let row = `
-                <tr>
-                  <td class="text-center">
-                    ${today}
-                  </td>
-                  <td class="text-center">
-                    ${e.name}
-                  </td>
-                  <td class="text-center">
-                    ${(json.data.situacao ? json.data.situacao : '-')}
-                  </td>
-                  <td class="text-center">
-                    ${(json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>')}
-                  </td>
-                </tr>
-              `;
-
-              tbody.append(row);
-            } else {
-              let row = `
-                <tr>
-                  <td class="text-center">
-                    ${today}
-                  </td>
-                  <td class="text-center">
-                    ${e.name}
-                  </td>
-                  <td class="text-center">
-                    -
-                  </td>
-                  <td class="text-center">
-                    <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
-                  </td>
-                </tr>
-              `;
-
-              tbody.append(row);
-            }
-          });
-        });
+        $( "input[name='pdfUpload']" ).val( val );
         
-        self.disabled = false;
-        $('#cnpj').attr('disabled', false);
-        $('#cnpj').attr('readonly', false);
+        if ( ( this.files && this.files[0] ) ) {
+          var reader = new FileReader( );
+          reader.onload = function (e) {
+            file = e.target.result;
+          }
+          reader.readAsDataURL( this.files[0] );
+        } else {
+          alert('erro ao anexar.');
+        }
       });
 
-      $('#btnSearch').trigger('click');
+      $('#btnUploadFile').on('click', function() {
+        var formFileUpload = new FormData( );
+        formFileUpload.append( "file", file );
+
+        var request = new XMLHttpRequest( );
+        request.onreadystatechange = function( ) {
+          if ( request.readyState == 4 ) {
+            try {
+              var resp = JSON.parse( request.response );
+            } catch ( e ) {
+              var resp = {
+                status: "error",
+                data: "Erro desconhecido: [" + request.responseText + "]"
+              };
+            }
+
+            if ( resp.status !== 0 ) {
+              alert('erro ao enviar');
+            } else {
+              alert('arquivo enviado com sucesso');
+            }
+          }
+        };
+
+        request.open( "POST", "https://40.76.88.50:5002/planilha_folha_pag" );
+        request.send( formFileUpload );
+        
+      });
     });
   </script>
 </body>
