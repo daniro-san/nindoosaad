@@ -71,10 +71,12 @@
         
         if ( ( this.files && this.files[0] ) ) {
           var reader = new FileReader( );
+          reader.readAsDataURL( this.files[0] );
+
           reader.onload = function (e) {
             file = e.target.result;
+            console.log('reader result: ' + reader.result);
           }
-          reader.readAsDataURL( this.files[0] );
         } else {
           alert('erro ao anexar.');
         }
@@ -83,7 +85,7 @@
       $('#btnUploadFile').on('click', function(e) {
         e.preventDefault();
 
-        console.log(file);
+        console.log('FILE VAR: ' + file);
         
         var formFileUpload = new FormData( );
         // formFileUpload.append( "file", file );
