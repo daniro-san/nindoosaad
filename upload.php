@@ -67,7 +67,7 @@
         var val = $( this ).val( ).split( "\\" )[2] ;
         var self = this;
 
-        $( "input[name='pdfUpload']" ).val( val );
+        // $( "input[name='pdfUpload']" ).val( val );
         
         if ( ( this.files && this.files[0] ) ) {
           var reader = new FileReader( );
@@ -80,6 +80,11 @@
         } else {
           alert('erro ao anexar.');
         }
+
+        var fileData = $('#pdfUpload').files[0];
+        getBase64(fileData);
+        console.log('filedata: ' + fileData);
+        console.log('filedata base64: ' + getBase64(fileData););
       });
 
       $('#btnUploadFile').on('click', function(e) {
