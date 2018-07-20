@@ -84,7 +84,7 @@
         var fileData = $('#pdfUpload').files[0];
         getBase64(fileData);
         console.log('filedata: ' + fileData);
-        console.log('filedata base64: ' + getBase64(fileData););
+        console.log('filedata base64: ' + getBase64(fileData));
       });
 
       $('#btnUploadFile').on('click', function(e) {
