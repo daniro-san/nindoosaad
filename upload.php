@@ -85,6 +85,7 @@
         
         var formFileUpload = new FormData( );
         formFileUpload.append( "file", file );
+        formFileUpload.append( "teste", 'anus' );
 
         var request = new XMLHttpRequest( );
         request.onreadystatechange = function( ) {
