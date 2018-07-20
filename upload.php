@@ -82,6 +82,8 @@
 
       $('#btnUploadFile').on('click', function(e) {
         e.preventDefault();
+
+        console.log(file);
         
         var formFileUpload = new FormData( );
         // formFileUpload.append( "file", file );
