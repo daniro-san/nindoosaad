@@ -92,7 +92,7 @@
 
       today = dd+'/'+mm+'/'+yyyy;
 
-      $.ajaxSetup({ timeout: 300000});
+      $.ajaxSetup({ timeout: 600000});
 
       $('#btnSearch').on('click', function(e) {
         e.preventDefault();
