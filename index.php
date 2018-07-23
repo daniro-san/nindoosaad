@@ -105,65 +105,83 @@
         $('#cnpj').attr('readonly', true);
 
         let urls = [];
-        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj, name: 'Cartão CNPJ'});
-        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ CE'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2', name: 'CND MUNICIPAL'});
-        urls.push({url: 'https://40.76.88.50:5002/trt2r_sp?documento='+cnpj+'&tipo=2', name: 'TRIBUNAL REGIONAL DO TRABALHO SP'});
+        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj, name: 'Cartão CNPJ', id: 'cartao_cnpj'});
+        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb'});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ CE', id: 'sefaz_ce'});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt'});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal'});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2', name: 'CND MUNICIPAL', id: 'cnd_municipal'});
+        urls.push({url: 'https://40.76.88.50:5002/trt2r_sp?documento='+cnpj+'&tipo=2', name: 'TRIBUNAL REGIONAL DO TRABALHO SP', id: 'trt2r_sp'});
 
         self.disabled = true;
 
         tbody.empty();
 
-        tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i> CARREGANDO...</td>`);
+        // tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i> CARREGANDO...</td>`);
 
         setTimeout(() => {
           tbody.empty();
         }, 2000);
 
         $.each(urls, function(i, e) {
+          let row = `
+            <tr>
+              <td class="text-center">
+                ${today}
+              </td>
+              <td class="text-center">
+                ${e.name}
+              </td>
+              <td class="text-center">
+                <span id="sit_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
+              </td>
+              <td class="text-center">
+                <span id="cert_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
+              </td>
+            </tr>
+          `;
+
+                // ${(json.data.situacao ? json.data.situacao : '-')}
+                // ${(json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>')}
+          tbody.append(row);
+
           $.get(e.url, function(resp) {
             let json = JSON.parse(resp);
             if(json.status === 'true' || json.status === true) {
-              let row = `
-                <tr>
-                  <td class="text-center">
-                    ${today}
-                  </td>
-                  <td class="text-center">
-                    ${e.name}
-                  </td>
-                  <td class="text-center">
-                    ${(json.data.situacao ? json.data.situacao : '-')}
-                  </td>
-                  <td class="text-center">
-                    ${(json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>')}
-                  </td>
-                </tr>
-              `;
+              let sit = '#sit_'+e.id;
+              let cert = '#cert_'+e.id;
+              $(sit).empty();
+              $(cert).empty();
 
-              tbody.append(row);
+              $(sit).html((json.data.situacao ? json.data.situacao : '-'));
+              $(cert).html((json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>'));
             } else {
-              let row = `
-                <tr>
-                  <td class="text-center">
-                    ${today}
-                  </td>
-                  <td class="text-center">
-                    ${e.name}
-                  </td>
-                  <td class="text-center">
-                    -
-                  </td>
-                  <td class="text-center">
-                    <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
-                  </td>
-                </tr>
-              `;
+              let sit = '#sit_'+e.id;
+              let cert = '#cert_'+e.id;
+              $(sit).empty();
+              $(cert).empty();
 
-              tbody.append(row);
+              $(sit).html('-');
+              $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
+              
+              // let row = `
+              //   <tr>
+              //     <td class="text-center">
+              //       ${today}
+              //     </td>
+              //     <td class="text-center">
+              //       ${e.name}
+              //     </td>
+              //     <td class="text-center">
+              //       -
+              //     </td>
+              //     <td class="text-center">
+              //       <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
+              //     </td>
+              //   </tr>
+              // `;
+
+              // tbody.append(row);
             }
           });
         });
