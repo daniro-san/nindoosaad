@@ -119,9 +119,9 @@
 
         // tbody.append(`<td colspan="20"><i class="fas fa-spinner fa-3x fa-spin"></i> CARREGANDO...</td>`);
 
-        setTimeout(() => {
-          tbody.empty();
-        }, 2000);
+        // setTimeout(() => {
+        //   tbody.empty();
+        // }, 2000);
 
         $.each(urls, function(i, e) {
           let row = `
