@@ -111,7 +111,7 @@
         urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt'});
         urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal'});
         urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=1&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO MOBILIÁRIA)', id: 'cnd_municipal_mob'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO IPTU)', id: 'cnd_municipal_iptu'});
+        // urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO IPTU)', id: 'cnd_municipal_iptu'});
         urls.push({url: 'https://40.76.88.50:5002/trt2r_sp?documento='+cnpj+'&tipo=2', name: 'TRIBUNAL REGIONAL DO TRABALHO SP', id: 'trt2r_sp'});
 
         self.disabled = true;
