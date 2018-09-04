@@ -105,7 +105,8 @@
         $('#cnpj').attr('readonly', true);
 
         let urls = [];
-        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj, name: 'Cartão CNPJ', id: 'cartao_cnpj'});
+        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=cartao', name: 'CARTÃO CNPJ', id: 'cartao_cnpj'});
+        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=qsa', name: 'CONSULTA QSA / CAPITAL SOCIAL', id: 'qsa'});
         urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb'});
         urls.push({url: 'https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ CE', id: 'sefaz_ce'});
         urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt'});
