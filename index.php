@@ -67,6 +67,7 @@
     var searchParams = new URLSearchParams(customUrl.search);
     var cnpj = searchParams.get('cnpj');
     var empresa = searchParams.get('empresa');
+    var uf = null;
 
     $('#companyData').html(`${empresa} - ${cnpj}`);
 
@@ -221,7 +222,26 @@
         $('#cnpj').attr('readonly', false);
       });
 
-      $('#btnSearch').trigger('click');
+      function getUF(cnpj, callback) {
+        alert('oi function');
+        let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
+        alert(service);
+        $.get(service, function(resp) {
+          let json = JSON.parse(resp);
+
+          alert(json);
+          alert('oi ' +service);
+
+          if(callback && typeof callback === 'function') {
+            callback();
+          }
+        });
+      }
+
+      getUF(cnpj, function() {
+        alert('oi callback');
+        $('#btnSearch').trigger('click');
+      });
     });
   </script>
 </body>
