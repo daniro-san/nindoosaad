@@ -226,28 +226,20 @@
         let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
         $.get(service, function(resp) {
           let json = JSON.parse(resp);
+          if(json.status === 0) {
+            uf = json.uf;
 
-          uf = json.uf;
+            $('#btnSearch').trigger('click');
+          } else {
+            uf = null;
+          }
+
         });
       }
 
-      getUF(cnpj, function() {
-        $('#btnSearch').trigger('click');
-      });
+      getUF(cnpj);
 
-      function checkUF() {
-        if(!uf) {
-          setTimeout(() => {
-            checkUF();
-          }, 20);
-        } else {
-          $('#btnSearch').trigger('click');
-
-          return false;
-        }
-      }
-
-      checkUF();
+      // $('#btnSearch').trigger('click');
     });
   </script>
 </body>
