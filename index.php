@@ -237,7 +237,9 @@
 
       function checkUF() {
         if(!uf) {
-          checkUF();
+          setTimeout(() => {
+            checkUF();
+          }, 20);
         } else {
           $('#btnSearch').trigger('click');
 
