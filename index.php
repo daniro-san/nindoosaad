@@ -148,7 +148,7 @@
         // }, 2000);
 
         $.each(urls, function(i, e) {
-          if((e.uf.length > 0 && e.uf.includes(uf)) || e.uf.length === 0) {
+          // if((e.uf.length > 0 && e.uf.includes(uf)) || e.uf.length === 0) {
             let row = `
               <tr>
                 <td class="text-center">
@@ -214,7 +214,7 @@
                 // tbody.append(row);
               }
             });
-          }
+          // }
         });
         
         self.disabled = false;
@@ -222,22 +222,22 @@
         $('#cnpj').attr('readonly', false);
       });
 
-      function getUF(cnpj, callback) {
-        let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
-        $.get(service, function(resp) {
-          let json = JSON.parse(resp);
-          if(json.status === 'true' || json.status === true) {
-            uf = json.uf;
+      // function getUF(cnpj, callback) {
+      //   let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
+      //   $.get(service, function(resp) {
+      //     let json = JSON.parse(resp);
+      //     if(json.status === 'true' || json.status === true) {
+      //       uf = json.uf;
 
             $('#btnSearch').trigger('click');
-          } else {
-            uf = null;
-          }
+      //     } else {
+      //       uf = null;
+      //     }
 
-        });
-      }
+      //   });
+      // }
 
-      getUF(cnpj);
+      // getUF(cnpj);
 
       // $('#btnSearch').trigger('click');
     });
