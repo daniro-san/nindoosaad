@@ -218,11 +218,13 @@
 
       function getUF(cnpj, callback) {
         alert('oi function');
-        let url = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
-        $.get(url, function(resp) {
+        let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
+        alert(service);
+        $.get(service, function(resp) {
           let json = JSON.parse(resp);
 
           alert(json);
+          alert('oi ' +service);
 
           if(callback && typeof callback === 'function') {
             callback();
