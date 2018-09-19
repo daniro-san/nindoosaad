@@ -235,8 +235,6 @@
         $('#btnSearch').trigger('click');
       });
 
-      checkUF();
-
       function checkUF() {
         if(!uf) {
           checkUf();
@@ -246,6 +244,8 @@
           return false;
         }
       }
+
+      checkUF();
     });
   </script>
 </body>
