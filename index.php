@@ -107,7 +107,6 @@
 
         let urls = [];
 
-
         //CERTIDÕES GERAIS
         urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=cartao', name: 'CARTÃO CNPJ', id: 'cartao_cnpj', uf: []});
         urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=qsa', name: 'CONSULTA QSA / CAPITAL SOCIAL', id: 'qsa', uf: []});
@@ -149,72 +148,73 @@
         // }, 2000);
 
         $.each(urls, function(i, e) {
-          let row = `
-            <tr>
-              <td class="text-center">
-                ${today}
-              </td>
-              <td class="text-center">
-                ${e.name}
-              </td>
-              <td class="text-center">
-                <span id="sit_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
-              </td>
-              <td class="text-center">
-                <span id="cert_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
-              </td>
-            </tr>
-          `;
-
-                // ${(json.data.situacao ? json.data.situacao : '-')}
-                // ${(json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>')}
-          tbody.append(row);
-
-          $.get(e.url, function(resp) {
-            let json = JSON.parse(resp);
-            if(json.status === 'true' || json.status === true) {
-              let sit = '#sit_'+e.id;
-              let cert = '#cert_'+e.id;
-              $(sit).empty();
-              $(cert).empty();
-
-              $(sit).html((json.data.situacao ? json.data.situacao : '-'));
-              $(cert).html((json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>'));
-
-              // $.get('https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', function(resp) {
-              //   if(json.status === 'true' || json.status === true) {
-              //     alert('sefaz_ce jhow');
-              //   }
-              // });
-            } else {
-              let sit = '#sit_'+e.id;
-              let cert = '#cert_'+e.id;
-              $(sit).empty();
-              $(cert).empty();
-
-              $(sit).html('-');
-              $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
-              
-              // let row = `
-              //   <tr>
-              //     <td class="text-center">
-              //       ${today}
-              //     </td>
-              //     <td class="text-center">
-              //       ${e.name}
-              //     </td>
-              //     <td class="text-center">
-              //       -
-              //     </td>
-              //     <td class="text-center">
-              //       <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
-              //     </td>
-              //   </tr>
-              // `;
-
-              // tbody.append(row);
-            }
-          });
+          if((e.uf.length > 0 && e.uf.includes(uf)) || e.uf.length === 0) {
+            let row = `
+              <tr>
+                <td class="text-center">
+                  ${today}
+                </td>
+                <td class="text-center">
+                  ${e.name}
+                </td>
+                <td class="text-center">
+                  <span id="sit_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
+                </td>
+                <td class="text-center">
+                  <span id="cert_${e.id}"><i class="fas fa-spinner fa-3x fa-spin"></i></span>
+                </td>
+              </tr>
+            `;
+                  // ${(json.data.situacao ? json.data.situacao : '-')}
+                  // ${(json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>')}
+            tbody.append(row);
+  
+            $.get(e.url, function(resp) {
+              let json = JSON.parse(resp);
+              if(json.status === 'true' || json.status === true) {
+                let sit = '#sit_'+e.id;
+                let cert = '#cert_'+e.id;
+                $(sit).empty();
+                $(cert).empty();
+  
+                $(sit).html((json.data.situacao ? json.data.situacao : '-'));
+                $(cert).html((json.data.certidao ? '<a href="'+json.data.certidao+'" download class="btn btn-primary" target="_blank">BAIXAR CERTIDÃO</a>' : '<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>'));
+  
+                // $.get('https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', function(resp) {
+                //   if(json.status === 'true' || json.status === true) {
+                //     alert('sefaz_ce jhow');
+                //   }
+                // });
+              } else {
+                let sit = '#sit_'+e.id;
+                let cert = '#cert_'+e.id;
+                $(sit).empty();
+                $(cert).empty();
+  
+                $(sit).html('-');
+                $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
+                
+                // let row = `
+                //   <tr>
+                //     <td class="text-center">
+                //       ${today}
+                //     </td>
+                //     <td class="text-center">
+                //       ${e.name}
+                //     </td>
+                //     <td class="text-center">
+                //       -
+                //     </td>
+                //     <td class="text-center">
+                //       <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
+                //     </td>
+                //   </tr>
+                // `;
+  
+                // tbody.append(row);
+              }
+            });
+          }
         });
         
         self.disabled = false;
@@ -227,7 +227,7 @@
         $.get(service, function(resp) {
           let json = JSON.parse(resp);
 
-          console.log(json.uf);
+          uf = json.uf;
 
           if(callback && typeof callback === 'function') {
             callback();
