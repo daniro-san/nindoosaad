@@ -49,7 +49,7 @@
             </thead>
             <tbody>
               <tr>
-                <td colspan="20">Faça a busca para carregar resultados...</td>
+                <td colspan="20">Buscando UF...</td>
               </tr>
             </tbody>
           </table>
@@ -112,8 +112,8 @@
         urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=cartao', name: 'CARTÃO CNPJ', id: 'cartao_cnpj', uf: []});
         urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=qsa', name: 'CONSULTA QSA / CAPITAL SOCIAL', id: 'qsa', uf: []});
         urls.push({url: 'https://40.76.88.50:5002/tst?documento='+cnpj, name: 'TRIBUNAL SUPERIOR DO TRABALHO', id: 'tst', uf: []});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal', uf: null});
-        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb', uf: null});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb', uf: []});
         
         urls.push({url: 'https://40.76.88.50:5002/lista_dev?documento='+cnpj, name: 'PROCURADORIA-GERAL DA FAZENDA NACIONAL', id: 'lista_dev', uf: []});
         urls.push({url: 'https://40.76.88.50:5002/simples_nacional?documento='+cnpj, name: 'SIMPLES NACIONAL', id: 'simples_nacional', uf: []});
@@ -121,7 +121,7 @@
         urls.push({url: 'https://40.76.88.50:5002/divida_ativa?documento='+cnpj+'&tipo=2', name: 'DIVIDA ATIVA', id: 'divida_ativa', uf: []});
 
         //ESPECÍFICAS DO ESTADO DA EMPRESA
-        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=1&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO MOBILIÁRIA)', id: 'cnd_municipal_mob', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=1&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO MOBILIÁRIA)', id: 'cnd_municipal_mob', uf: ['SP']});
         // urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO IPTU)', id: 'cnd_municipal_iptu'});
         urls.push({url: 'https://40.76.88.50:5002/cnd_estadual_sp?documento='+cnpj+'&tipo=cnpj', name: 'CND ESTADUAL SP', id: 'cnd_estadual_sp', uf: ['SP']});
         urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt', uf: ['MT']});
@@ -223,14 +223,11 @@
       });
 
       function getUF(cnpj, callback) {
-        alert('oi function');
         let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
-        alert(service);
         $.get(service, function(resp) {
           let json = JSON.parse(resp);
 
-          alert(json);
-          alert('oi ' +service);
+          console.log(json.uf);
 
           if(callback && typeof callback === 'function') {
             callback();
@@ -239,7 +236,6 @@
       }
 
       getUF(cnpj, function() {
-        alert('oi callback');
         $('#btnSearch').trigger('click');
       });
     });
