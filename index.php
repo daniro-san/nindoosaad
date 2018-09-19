@@ -228,16 +228,24 @@
           let json = JSON.parse(resp);
 
           uf = json.uf;
-
-          if(callback && typeof callback === 'function') {
-            callback();
-          }
         });
       }
 
       getUF(cnpj, function() {
         $('#btnSearch').trigger('click');
       });
+
+      checkUF();
+
+      function checkUF() {
+        if(!uf) {
+          checkUf();
+        } else {
+          $('#btnSearch').trigger('click');
+
+          return false;
+        }
+      }
     });
   </script>
 </body>
