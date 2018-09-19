@@ -226,7 +226,7 @@
         let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
         $.get(service, function(resp) {
           let json = JSON.parse(resp);
-          if(json.status === 0) {
+          if(json.status === 'true' || json.status === true) {
             uf = json.uf;
 
             $('#btnSearch').trigger('click');
