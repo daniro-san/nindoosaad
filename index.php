@@ -105,32 +105,38 @@
         $('#cnpj').attr('readonly', true);
 
         let urls = [];
-        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=cartao', name: 'CARTÃO CNPJ', id: 'cartao_cnpj'});
-        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=qsa', name: 'CONSULTA QSA / CAPITAL SOCIAL', id: 'qsa'});
-        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ CE', id: 'sefaz_ce'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=1&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO MOBILIÁRIA)', id: 'cnd_municipal_mob'});
-        // urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO IPTU)', id: 'cnd_municipal_iptu'});
-        urls.push({url: 'https://40.76.88.50:5002/trt2r_sp?documento='+cnpj+'&tipo=2', name: 'TRIBUNAL REGIONAL DO TRABALHO SP 2ª', id: 'trt2r_sp'});
-        
-        urls.push({url: 'https://40.76.88.50:5002/lista_dev?documento='+cnpj, name: 'PROCURADORIA-GERAL DA FAZENDA NACIONAL', id: 'lista_dev'});
-        urls.push({url: 'https://40.76.88.50:5002/cnd_estadual_sp?documento='+cnpj+'&tipo=cnpj', name: 'CND ESTADUAL SP', id: 'cnd_estadual_sp'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_pr?documento='+cnpj+'&tipo=cnpj', name: 'SEFAZ PR', id: 'sefaz_pr'});
-        urls.push({url: 'https://40.76.88.50:5002/sefaz_rs?documento='+cnpj+'&tipo=cnpj', name: 'SEFAZ RS', id: 'sefaz_rs'});
-        urls.push({url: 'https://40.76.88.50:5002/jf_pr?documento='+cnpj+'&tipo=cpfcnpj&local=', name: 'JUSTIÇA FEDERAL PR', id: 'jf_pr'});
-        urls.push({url: 'https://40.76.88.50:5002/jfrj?certidao='+cnpj+'&requisitante=12070100812', name: 'JUSTIÇA FEDERAL RJ', id: 'jfrj'});
-        urls.push({url: 'https://40.76.88.50:5002/trf4?documento='+cnpj+'&nome='+empresa+'&tipo=A', name: 'JUSTIÇA FEDERAL RS/SC', id: 'trf4'});
-        urls.push({url: 'https://40.76.88.50:5002/tj_ce?documento='+cnpj+'&tipo=cnpj', name: 'TRIBUNAL DE JUSTIÇA CE', id: 'tj_ce'});
-        urls.push({url: 'https://40.76.88.50:5002/trt15r_sp?documento='+cnpj+'&tipo=D', name: 'TRIBUNAL REGIONAL DO TRABALHO SP 15ª', id: 'trt15r_sp'});
-        urls.push({url: 'https://40.76.88.50:5002/trt6_pe?documento='+cnpj, name: 'TRIBUNAL REGIONAL DO TRABALHO PE', id: 'trt6_pe'});
-        urls.push({url: 'https://40.76.88.50:5002/trt_sc?documento='+cnpj+'&tipo=cnpj', name: 'TRIBUNAL REGIONAL DO TRABALHO SC', id: 'trt_sc'});
-        urls.push({url: 'https://40.76.88.50:5002/tst?documento='+cnpj, name: 'TRIBUNAL SUPERIOR DO TRABALHO', id: 'tst'});
-        urls.push({url: 'https://40.76.88.50:5002/simples_nacional?documento='+cnpj, name: 'SIMPLES NACIONAL', id: 'simples_nacional'});
-        urls.push({url: 'https://40.76.88.50:5002/fdc_contrib?documento='+cnpj+'&tipo=cnpj', name: 'FICHA DE DADOS CADASTRAIS', id: 'fdc_contrib'});
-        urls.push({url: 'https://40.76.88.50:5002/divida_ativa?documento='+cnpj+'&tipo=2', name: 'DIVIDA ATIVA', id: 'divida_ativa'});
 
+
+        //CERTIDÕES GERAIS
+        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=cartao', name: 'CARTÃO CNPJ', id: 'cartao_cnpj', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/cartao_cnpj?cnpj='+cnpj+'&tipo=qsa', name: 'CONSULTA QSA / CAPITAL SOCIAL', id: 'qsa', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/tst?documento='+cnpj, name: 'TRIBUNAL SUPERIOR DO TRABALHO', id: 'tst', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_federal?cnpj='+cnpj, name: 'CND FEDERAL', id: 'cnd_federal', uf: null});
+        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb', uf: null});
+        
+        urls.push({url: 'https://40.76.88.50:5002/lista_dev?documento='+cnpj, name: 'PROCURADORIA-GERAL DA FAZENDA NACIONAL', id: 'lista_dev', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/simples_nacional?documento='+cnpj, name: 'SIMPLES NACIONAL', id: 'simples_nacional', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/fdc_contrib?documento='+cnpj+'&tipo=cnpj', name: 'FICHA DE DADOS CADASTRAIS', id: 'fdc_contrib', uf: []});
+        urls.push({url: 'https://40.76.88.50:5002/divida_ativa?documento='+cnpj+'&tipo=2', name: 'DIVIDA ATIVA', id: 'divida_ativa', uf: []});
+
+        //ESPECÍFICAS DO ESTADO DA EMPRESA
+        urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=1&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO MOBILIÁRIA)', id: 'cnd_municipal_mob', uf: []});
+        // urls.push({url: 'https://40.76.88.50:5002/cnd_municipal_sp?documento='+cnpj+'&certidao=2&tipo=cnpj', name: 'CND MUNICIPAL (CERTIDÃO IPTU)', id: 'cnd_municipal_iptu'});
+        urls.push({url: 'https://40.76.88.50:5002/cnd_estadual_sp?documento='+cnpj+'&tipo=cnpj', name: 'CND ESTADUAL SP', id: 'cnd_estadual_sp', uf: ['SP']});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_mt?documento='+cnpj+'&tipo=cnpj&modelo=0', name: 'SEFAZ MT', id: 'sefaz_mt', uf: ['MT']});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_ce?documento='+cnpj+'&tipo=CNPJ', name: 'SEFAZ CE', id: 'sefaz_ce', uf: ['CE']});
+        urls.push({url: 'https://40.76.88.50:5002/trt2r_sp?documento='+cnpj+'&tipo=2', name: 'TRIBUNAL REGIONAL DO TRABALHO SP 2ª', id: 'trt2r_sp', uf: ['SP']});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_pr?documento='+cnpj+'&tipo=cnpj', name: 'SEFAZ PR', id: 'sefaz_pr', uf: ['PR']});
+        urls.push({url: 'https://40.76.88.50:5002/sefaz_rs?documento='+cnpj+'&tipo=cnpj', name: 'SEFAZ RS', id: 'sefaz_rs', uf: ['RS']});
+        urls.push({url: 'https://40.76.88.50:5002/jf_pr?documento='+cnpj+'&tipo=cpfcnpj&local=', name: 'JUSTIÇA FEDERAL PR', id: 'jf_pr', uf: ['PR']});
+        urls.push({url: 'https://40.76.88.50:5002/tj_ce?documento='+cnpj+'&tipo=cnpj', name: 'TRIBUNAL DE JUSTIÇA CE', id: 'tj_ce', uf: ['CE']});
+        urls.push({url: 'https://40.76.88.50:5002/trt_sc?documento='+cnpj+'&tipo=cnpj', name: 'TRIBUNAL REGIONAL DO TRABALHO SC', id: 'trt_sc', uf: ['SC']});
+        urls.push({url: 'https://40.76.88.50:5002/trt15r_sp?documento='+cnpj+'&tipo=D', name: 'TRIBUNAL REGIONAL DO TRABALHO SP 15ª', id: 'trt15r_sp', uf: ['SP']});
+        urls.push({url: 'https://40.76.88.50:5002/trt6_pe?documento='+cnpj, name: 'TRIBUNAL REGIONAL DO TRABALHO PE', id: 'trt6_pe', uf: ['PE']});
+        urls.push({url: 'https://40.76.88.50:5002/jfrj?certidao='+cnpj+'&requisitante=12070100812', name: 'JUSTIÇA FEDERAL RJ', id: 'jfrj', uf: ['RJ']});
+        urls.push({url: 'https://40.76.88.50:5002/trf4?documento='+cnpj+'&nome='+empresa+'&tipo=A', name: 'JUSTIÇA FEDERAL RS/SC', id: 'trf4', uf: ['RS', 'SC']});
+
+        
         self.disabled = true;
 
         tbody.empty();
