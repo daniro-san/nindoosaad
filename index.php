@@ -217,6 +217,7 @@
       });
 
       function getUF(cnpj, callback) {
+        alert('oi function');
         let url = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
         $.get(url, function(resp) {
           let json = JSON.parse(resp);
@@ -230,6 +231,7 @@
       }
 
       getUF(cnpj, function() {
+        alert('oi callback');
         $('#btnSearch').trigger('click');
       });
     });
