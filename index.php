@@ -51,7 +51,7 @@
         <div class="text-center pt-2 mt-2 text-message font-weight-regular">
           <div class="col-12 table-responsive"><h3 id="companyData"></h3></div>
           <table id="resultTable" class="table">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th>Data da consulta</th>
                 <th>Tipo de documento</th>
