@@ -108,7 +108,9 @@
   </header>
   
   <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
-      <main role="main" class="m-grid__item m-grid__item--fluid m-wrapper">
+    <main role="main" class="m-grid__item m-grid__item--fluid m-wrapper">
+      <div class="m-portlet m-portlet--full-height">
+        
         <div class="row align-items-center justify-content-center h-50 d-none">
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
             <form action="">
@@ -124,7 +126,7 @@
         <div class="text-center pt-2 mt-2 text-message font-weight-regular">
           <div class="col-12 table-responsive"><h3 id="companyData"></h3></div>
           <table id="resultTable" class="table">
-            <thead class="">
+            <thead class="thead-light">
               <tr>
                 <th>Data da consulta</th>
                 <th>Tipo de documento</th>
@@ -139,7 +141,8 @@
             </tbody>
           </table>
         </div>
-      </main>
+      </div>
+    </main>
   </div>
 
   <script src="assets/vendors/base/vendors.bundle.js"></script>
