@@ -107,7 +107,7 @@
     </div>
   </header>
   
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
       <main role="main" class="inner cover container-fluid h-100">
         <div class="row align-items-center justify-content-center h-50 d-none">
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
