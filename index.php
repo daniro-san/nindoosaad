@@ -6,7 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SAAD</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"/>
+
+
+  <link href="assets/vendors/base/vendors.bundle.css" rel="stylesheet"/>
+
+
+  <link href="assets/demo/demo2/base/style.bundle.css" rel="stylesheet"/>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+
+  <script src="assets/fonte.js"></script>
+
 
   <style>
     html,
@@ -20,10 +32,85 @@
     }
   </style>
 </head>
-<body class="text-center h-100">
+<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default">
+  <header id="m_header" class="m-grid__item m-header " minimize="minimize" minimize-offset="200" minimize-mobile-offset="200">
+    <div class="m-header__top">
+        <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+            <div class="m-stack m-stack--ver m-stack--desktop">
+                <!-- begin::Brand -->
+                <div class="m-stack__item m-brand">
+                    <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+                        <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                            <a href="index.html" class="m-brand__logo-wrapper">
+                                <img src="assets/logo.png" height="60px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end::Brand -->
+                <!-- begin::Topbar -->
+                <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                    <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+                        <div class="m-stack__item m-topbar__nav-wrapper">
+                            <ul class="m-topbar__nav m-nav m-nav--inline">
+                                <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                    <a href="#" class="m-nav__link m-dropdown__toggle">
+                                        <span class="m-topbar__userpic m--hide">
+                                            <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="">
+                                        </span>
+                                        <span class="m-topbar__welcome">
+                                        
+                                        </span>
+                                        <span class="m-topbar__username">
+
+                                        </span>
+                                    </a>
+                                    <div class="m-dropdown__wrapper">
+                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                        <div class="m-dropdown__inner">
+                                            <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                                <div class="m-card-user m-card-user--skin-dark">
+                                                    <div class="m-card-user__pic">
+                                                        <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="">
+                                                    </div>
+                                                    <div class="m-card-user__details">
+                                                        <span class="m-card-user__name m--font-weight-500">
+                                                            Dimas Timmers
+                                                        </span>
+                                                        <a href="" class="m-card-user__email m--font-weight-300 m-link">
+                                                            dimas@timmers.com.br
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-dropdown__body">
+                                                <div class="m-dropdown__content">
+                                                    <ul class="m-nav m-nav--skin-light">
+                                                        <li class="m-nav__item">
+                                                            <a href="#" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                Logout
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end::Topbar -->
+            </div>
+        </div>
+    </div>
+  </header>
   
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <main role="main" class="inner cover container-fluid h-100">
+  <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+    <main role="main" class="m-grid__item m-grid__item--fluid m-wrapper">
+      <div class="m-portlet m-portlet--full-height">
+        
         <div class="row align-items-center justify-content-center h-50 d-none">
           <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
             <form action="">
@@ -37,8 +124,8 @@
           </div>
         </div>
         <div class="text-center pt-2 mt-2 text-message font-weight-regular">
-          <div class="col-12"><h3 id="companyData"></h3></div>
-          <table id="resultTable" class="table table-bordered table-striped">
+          <div class="col-12 table-responsive"><h3 id="companyData"></h3></div>
+          <table id="resultTable" class="table">
             <thead class="thead-light">
               <tr>
                 <th>Data da consulta</th>
@@ -54,12 +141,20 @@
             </tbody>
           </table>
         </div>
-      </main>
+      </div>
+    </main>
   </div>
 
-  <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script src="assets/vendors/base/vendors.bundle.js"></script>
+
+  <script src="assets/demo/demo2/base/scripts.bundle.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+  <script src="assets/app/js/dashboard.js"></script>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
   <script>
@@ -226,18 +321,20 @@
         let service = 'https://40.76.88.50:5002/supplier_uf?cnpj='+cnpj;
         $.get(service, function(resp) {
           let json = JSON.parse(resp);
+          if(json.status === 'true' || json.status === true) {
+            uf = json.uf;
 
-          uf = json.uf;
-
-          if(callback && typeof callback === 'function') {
-            callback();
+            $('#btnSearch').trigger('click');
+          } else {
+            uf = null;
           }
+
         });
       }
 
-      getUF(cnpj, function() {
-        $('#btnSearch').trigger('click');
-      });
+      getUF(cnpj);
+
+      // $('#btnSearch').trigger('click');
     });
   </script>
 </body>
