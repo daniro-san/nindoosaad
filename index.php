@@ -230,7 +230,7 @@
         urls.push({url: 'https://40.76.88.50:5002/trt6_pe?documento='+cnpj, name: 'TRIBUNAL REGIONAL DO TRABALHO PE', id: 'trt6_pe', uf: ['PE']});
         urls.push({url: 'https://40.76.88.50:5002/jfrj?certidao='+cnpj+'&requisitante=12070100812', name: 'JUSTIÇA FEDERAL RJ', id: 'jfrj', uf: ['RJ']});
         urls.push({url: 'https://40.76.88.50:5002/trf4?documento='+cnpj+'&nome='+empresa+'&tipo=A', name: 'JUSTIÇA FEDERAL RS/SC', id: 'trf4', uf: ['RS', 'SC']});
-
+        urls.push({url: 'https://40.76.88.50:5002/juceb?cnpj='+cnpj, name: 'JUCEB', id: 'juceb', uf: []});
         
         self.disabled = true;
 
