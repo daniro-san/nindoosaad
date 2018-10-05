@@ -32,7 +32,7 @@
     }
   </style>
 </head>
-<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default" style="overflow-y: auto">
+<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default" style="overflow-y: scroll">
   <header id="m_header" class="m-grid__item m-header " minimize="minimize" minimize-offset="200" minimize-mobile-offset="200">
     <div class="m-header__top">
         <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
