@@ -32,117 +32,120 @@
     }
   </style>
 </head>
-<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default" style="overflow-y: scroll">
-  <header id="m_header" class="m-grid__item m-header " minimize="minimize" minimize-offset="200" minimize-mobile-offset="200">
-    <div class="m-header__top">
-        <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
-            <div class="m-stack m-stack--ver m-stack--desktop">
-                <!-- begin::Brand -->
-                <div class="m-stack__item m-brand">
-                    <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
-                        <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="index.html" class="m-brand__logo-wrapper">
-                                <img src="assets/logo.png" height="60px">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- end::Brand -->
-                <!-- begin::Topbar -->
-                <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
-                    <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
-                        <div class="m-stack__item m-topbar__nav-wrapper">
-                            <ul class="m-topbar__nav m-nav m-nav--inline">
-                                <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
-                                    <a href="#" class="m-nav__link m-dropdown__toggle">
-                                        <span class="m-topbar__userpic m--hide">
-                                            <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="">
-                                        </span>
-                                        <span class="m-topbar__welcome">
-                                        
-                                        </span>
-                                        <span class="m-topbar__username">
-
-                                        </span>
-                                    </a>
-                                    <div class="m-dropdown__wrapper">
-                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                        <div class="m-dropdown__inner">
-                                            <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
-                                                <div class="m-card-user m-card-user--skin-dark">
-                                                    <div class="m-card-user__pic">
-                                                        <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="">
-                                                    </div>
-                                                    <div class="m-card-user__details">
-                                                        <span class="m-card-user__name m--font-weight-500">
-                                                            Dimas Timmers
-                                                        </span>
-                                                        <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                            dimas@timmers.com.br
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-dropdown__body">
-                                                <div class="m-dropdown__content">
-                                                    <ul class="m-nav m-nav--skin-light">
-                                                        <li class="m-nav__item">
-                                                            <a href="#" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
-                                                                Logout
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- end::Topbar -->
-            </div>
-        </div>
-    </div>
-  </header>
+<body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default">
+  <div class="m-grid m-grid--hor m-grid--root m-page">
+    
+    <header id="m_header" class="m-grid__item m-header " minimize="minimize" minimize-offset="200" minimize-mobile-offset="200">
+      <div class="m-header__top">
+          <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+              <div class="m-stack m-stack--ver m-stack--desktop">
+                  <!-- begin::Brand -->
+                  <div class="m-stack__item m-brand">
+                      <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+                          <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                              <a href="index.html" class="m-brand__logo-wrapper">
+                                  <img src="assets/logo.png" height="60px">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- end::Brand -->
+                  <!-- begin::Topbar -->
+                  <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                      <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+                          <div class="m-stack__item m-topbar__nav-wrapper">
+                              <ul class="m-topbar__nav m-nav m-nav--inline">
+                                  <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                      <a href="#" class="m-nav__link m-dropdown__toggle">
+                                          <span class="m-topbar__userpic m--hide">
+                                              <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="">
+                                          </span>
+                                          <span class="m-topbar__welcome">
+                                          
+                                          </span>
+                                          <span class="m-topbar__username">
   
-  <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
-    <main role="main" class="m-grid__item m-grid__item--fluid m-wrapper">
-      <div class="m-portlet m-portlet--full-height">
-        
-        <div class="row align-items-center justify-content-center h-50 d-none">
-          <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
-            <form action="">
-              <div class="form-group">
-                <input class="form-control form-control-lg d-none" placeholder="CNPJ" type="text" name="cnpj" id="cnpj">
+                                          </span>
+                                      </a>
+                                      <div class="m-dropdown__wrapper">
+                                          <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                          <div class="m-dropdown__inner">
+                                              <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                                  <div class="m-card-user m-card-user--skin-dark">
+                                                      <div class="m-card-user__pic">
+                                                          <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="">
+                                                      </div>
+                                                      <div class="m-card-user__details">
+                                                          <span class="m-card-user__name m--font-weight-500">
+                                                              Dimas Timmers
+                                                          </span>
+                                                          <a href="" class="m-card-user__email m--font-weight-300 m-link">
+                                                              dimas@timmers.com.br
+                                                          </a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="m-dropdown__body">
+                                                  <div class="m-dropdown__content">
+                                                      <ul class="m-nav m-nav--skin-light">
+                                                          <li class="m-nav__item">
+                                                              <a href="#" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                  Logout
+                                                              </a>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- end::Topbar -->
               </div>
-              <div class="form-group">
-                <button class="btn btn-info btn-lg btn-block d-none" id="btnSearch">BUSCAR</button>
-              </div>
-            </form>
+          </div>
+      </div>
+    </header>
+    
+    <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+      <main role="main" class="m-grid__item m-grid__item--fluid m-wrapper">
+        <div class="m-portlet m-portlet--full-height">
+          
+          <div class="row align-items-center justify-content-center h-50 d-none">
+            <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-4">
+              <form action="">
+                <div class="form-group">
+                  <input class="form-control form-control-lg d-none" placeholder="CNPJ" type="text" name="cnpj" id="cnpj">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-info btn-lg btn-block d-none" id="btnSearch">BUSCAR</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="text-center pt-2 mt-2 text-message font-weight-regular">
+            <div class="col-12 table-responsive"><h3 id="companyData"></h3></div>
+            <table id="resultTable" class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>Data da consulta</th>
+                  <th>Tipo de documento</th>
+                  <th>Situação</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="20">Buscando UF...</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="text-center pt-2 mt-2 text-message font-weight-regular">
-          <div class="col-12 table-responsive"><h3 id="companyData"></h3></div>
-          <table id="resultTable" class="table">
-            <thead class="thead-light">
-              <tr>
-                <th>Data da consulta</th>
-                <th>Tipo de documento</th>
-                <th>Situação</th>
-                <th>Resultado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="20">Buscando UF...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
 
   <script src="assets/vendors/base/vendors.bundle.js"></script>
