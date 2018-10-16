@@ -234,6 +234,12 @@
         urls.push({url: 'https://40.76.88.50:5002/jfrj?certidao='+cnpj+'&requisitante=12070100812', name: 'JUSTIÇA FEDERAL RJ', id: 'jfrj', uf: ['RJ']});
         urls.push({url: 'https://40.76.88.50:5002/trf4?documento='+cnpj+'&nome='+empresa+'&tipo=A', name: 'JUSTIÇA FEDERAL RS/SC', id: 'trf4', uf: ['RS', 'SC']});
         
+        //NOVOS
+        urls.push({url: 'https://40.76.88.50:5002/tj_rs?empresa='+empresa, name: 'TRIBUNAL DE JUSTIÇA RS', id: 'tj_rs', uf: ['RS']});
+        urls.push({url: 'https://40.76.88.50:5002/tj_se?empresa='+empresa+'&documento='+cnpj+'&domicilio=null&natureza_certidao=FC&tipo=cnpj', name: 'TRIBUNAL DE JUSTIÇA SE', id: 'tj_se', uf: ['SE']});
+        urls.push({url: 'https://40.76.88.50:5002/trf3_sp?nome='+empresa+'&documento='+cnpj+'&certidao=4&abrangencia=1&tipo=Juridica', name: 'TRIBUNAL REGIONAL FEDERAL SP 3ª', id: 'trf3_sp', uf: ['SP']});
+
+
         self.disabled = true;
 
         tbody.empty();
