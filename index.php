@@ -238,6 +238,9 @@
         urls.push({url: 'https://40.76.88.50:5015/tj_rs?empresa='+empresa, name: 'TRIBUNAL DE JUSTIÇA RS', id: 'tj_rs', uf: ['RS']});
         urls.push({url: 'https://40.76.88.50:5015/tj_se?empresa='+empresa+'&documento='+cnpj+'&domicilio=null&natureza_certidao=FC&tipo=cnpj', name: 'TRIBUNAL DE JUSTIÇA SE', id: 'tj_se', uf: ['SE']});
         urls.push({url: 'https://40.76.88.50:5015/trf3_sp?nome='+empresa+'&documento='+cnpj+'&certidao=4&abrangencia=1&tipo=Juridica', name: 'TRIBUNAL REGIONAL FEDERAL SP 3ª', id: 'trf3_sp', uf: ['SP']});
+        urls.push({url: 'https://40.76.88.50:5015/tj_sp?nome_razao='+empresa+'&documento='+cnpj+'&modelo=6&tipo=cnpj', name: 'TJ SP - CERTIDÃO DE DISTRIBUIÇÃO DE AÇÕES CRIMINAIS', id: 'tj_sp', uf: ['SP']});
+        urls.push({url: 'https://40.76.88.50:5015/tj_sp?nome_razao='+empresa+'&documento='+cnpj+'&modelo=58&tipo=cnpj', name: 'TJ SP - CERTIDÃO DE FALÊNCIAS, CONCORDATAS', id: 'tj_sp', uf: ['SP']});
+        
 
 
         self.disabled = true;
