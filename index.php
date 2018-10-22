@@ -400,7 +400,7 @@
 
                 $('#btnSearch').trigger('click');
             } else {
-                uf = '';
+                uf = null;
         
                 $('#btnSearch').trigger('click');
             }
