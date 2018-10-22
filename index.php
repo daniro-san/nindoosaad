@@ -400,7 +400,7 @@ $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
             } else {
                 uf = '';
 
-                console.log("teste");
+                console.log(json);
                 $('#btnSearch').trigger('click');
             }
         });
