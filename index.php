@@ -399,6 +399,7 @@ $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
             $('#btnSearch').trigger('click');
           } else {
             uf = null;
+            $('#btnSearch').trigger('click');
           }
 
         });
