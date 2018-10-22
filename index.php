@@ -397,11 +397,10 @@
             if(json.status === 'true' || json.status === true) {
                 uf = json.uf;
 
-
+                $('#btnSearch').trigger('click');
             } else {
                 uf = '';
-
-                console.log('teste');
+        
                 $('#btnSearch').trigger('click');
             }
         });
