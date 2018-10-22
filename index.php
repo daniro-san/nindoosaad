@@ -381,13 +381,14 @@
                     // <span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>
                     // </td>
                     // </tr>
-                    // `;
+                    // `;   
 
                      // tbody.append(row);
                     }
                 });
             }
         });
+    });
 
     function getUF(cnpj, callback) {
         let service = 'https://40.76.88.50:5015/supplier_uf?cnpj='+cnpj;
