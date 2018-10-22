@@ -392,18 +392,18 @@
     function getUF(cnpj, callback) {
         let service = 'https://40.76.88.50:5015/supplier_uf?cnpj='+cnpj;
         $.get(service, function(resp) {
-        let json = JSON.parse(resp);
-        console.log(json);
-        if(json.status === 'true' || json.status === true) {
-        uf = json.uf;
+            let json = JSON.parse(resp);
+            console.log(json);
+            if(json.status === 'true' || json.status === true) {
+                uf = json.uf;
 
 
-        } else {
-        uf = '';
+            } else {
+                uf = '';
 
-        console.log('teste');
-        $('#btnSearch').trigger('click');
-        }
+                console.log('teste');
+                $('#btnSearch').trigger('click');
+            }
         });
     }
 
