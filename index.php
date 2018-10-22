@@ -383,7 +383,7 @@
                     // </tr>
                     // `;
 
-                    // tbody.append(row);
+                     // tbody.append(row);
                     }
                 });
             }
@@ -404,7 +404,7 @@
                 $('#btnSearch').trigger('click');
             }
         });
-    }
+    } 
 
       getUF(cnpj);
 
