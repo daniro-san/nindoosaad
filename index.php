@@ -389,21 +389,22 @@ $(cert).html('<span class="text-danger">CERTIDÃO NÃO ENCONTRADA</span>');
 }
 });
 
-      function getUF(cnpj, callback) {
+    function getUF(cnpj, callback) {
         let service = 'https://40.76.88.50:5015/supplier_uf?cnpj='+cnpj;
         $.get(service, function(resp) {
-          let json = JSON.parse(resp);
-          if(json.status === 'true' || json.status === true) {
-            uf = json.uf;
+            let json = JSON.parse(resp);
+            if(json.status === 'true' || json.status === true) {
+                uf = json.uf;
 
-            $('#btnSearch').trigger('click');
-          } else {
-            uf = null;
-            $('#btnSearch').trigger('click');
-          }
 
+            } else {
+                uf = '';
+
+                console.log("teste");
+                $('#btnSearch').trigger('click');
+            }
         });
-      }
+    }
 
       getUF(cnpj);
 
